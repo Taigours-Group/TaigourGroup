@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | Taigour Group</title>
+    <meta name="description" content="This page is currently under construction. Partner or collaborate with Taigour Group while we build.">
+    <meta name="keywords" content="Taigour Group, under construction, coming soon, collaboration, partnership">
+    <meta name="author" content="Taigour Group">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" href="assets/logo1.png" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(160deg, #FAF3E3 0%, #F5EBD4 55%, #F1E5C9 100%);
+            color: #1f2937;
+            position: relative;
+            overflow-x: hidden;
+            padding: 2.5rem 1.25rem;
+        }
+
+        /* ===== Background decor ===== */
+        .glow {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(90px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glow-1 {
+            width: 460px; height: 460px;
+            top: -140px; right: -140px;
+            background: radial-gradient(circle, rgba(201,168,76,0.26), transparent 70%);
+        }
+        .glow-2 {
+            width: 380px; height: 380px;
+            bottom: -120px; left: -140px;
+            background: radial-gradient(circle, rgba(232,201,106,0.22), transparent 70%);
+        }
+
+        .ring {
+            position: fixed;
+            top: 50%; left: 50%;
+            translate: -50% -50%;
+            width: 640px; height: 640px;
+            border: 1px dashed rgba(201,168,76,0.22);
+            border-radius: 50%;
+            animation: spin 34s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .ring::before {
+            content: '';
+            position: absolute;
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: #C9A84C;
+            top: -5px; left: 50%;
+            box-shadow: 0 0 12px rgba(201,168,76,0.6);
+        }
+        .ring-2 {
+            width: 780px; height: 780px;
+            border-style: solid;
+            border-color: rgba(201,168,76,0.1);
+            animation: spinReverse 48s linear infinite;
+        }
+        .ring-2::before { width: 7px; height: 7px; background: #E8C96A; top: auto; bottom: -4px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes spinReverse { to { transform: rotate(-360deg); } }
+
+        /* Floating gold sparkles */
+        .sparkle {
+            position: fixed;
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: rgba(201,168,76,0.45);
+            animation: drift 9s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .s1 { top: 18%; left: 12%; animation-delay: 0s; }
+        .s2 { top: 66%; left: 8%;  animation-delay: 2s; width: 3px; height: 3px; }
+        .s3 { top: 24%; right: 14%; animation-delay: 4s; }
+        .s4 { top: 74%; right: 10%; animation-delay: 6s; width: 3px; height: 3px; }
+        .s5 { top: 45%; left: 20%; animation-delay: 3s; width: 4px; height: 4px; }
+        .s6 { top: 38%; right: 22%; animation-delay: 5s; width: 4px; height: 4px; }
+        @keyframes drift {
+            0%,100% { transform: translateY(0); opacity: 0.35; }
+            50% { transform: translateY(-22px); opacity: 0.9; }
+        }
+
+        /* ===== Main card ===== */
+        .waiting-container {
+            position: relative;
+            z-index: 2;
+            background: rgba(255,251,240,0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(201,168,76,0.28);
+            border-radius: 2.25rem;
+            box-shadow: 0 28px 80px rgba(160,120,48,0.2);
+            padding: 3rem 2.75rem 2.25rem;
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+            animation: cardIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+        @keyframes cardIn {
+            from { opacity: 0; transform: translateY(28px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Mascot with orbit ring */
+        .mascot-wrap {
+            position: relative;
+            width: 150px; height: 150px;
+            margin: 0 auto;
+        }
+        .mascot-wrap::before {
+            content: '';
+            position: absolute; inset: -9px;
+            border-radius: 50%;
+            border: 1.5px solid transparent;
+            border-top-color: #C9A84C;
+            border-right-color: rgba(201,168,76,0.35);
+            animation: spin 3.5s linear infinite;
+        }
+        .mascot {
+            width: 100%; height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 1px solid rgba(201,168,76,0.3);
+            background: rgba(201,168,76,0.08);
+            padding: 0.7rem;
+            animation: floaty 5s ease-in-out infinite;
+        }
+        @keyframes floaty {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(201,168,76,0.1);
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 9999px;
+            padding: 0.42rem 1.05rem;
+            font-size: 0.62rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #A07830;
+            font-weight: 500;
+            margin-top: 1.4rem;
+        }
+        .badge-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #C9A84C;
+            animation: pulse 2s ease infinite;
+        }
+        @keyframes pulse {
+            0%,100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
+            50% { box-shadow: 0 0 0 6px rgba(201,168,76,0); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.3rem, 7vw, 3.2rem);
+            font-weight: 900;
+            margin-top: 0.9rem;
+            background: linear-gradient(90deg, #A07830 0%, #C9A84C 30%, #E8C96A 50%, #C9A84C 70%, #A07830 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
+
+        .lead {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.65;
+            margin-top: 0.85rem;
+        }
+
+        /* Building progress bar */
+        .progress-wrap { margin-top: 1.6rem; }
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.6rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #A07830;
+            font-weight: 500;
+            margin-bottom: 0.45rem;
+        }
+        .progress-track {
+            height: 7px;
+            border-radius: 9999px;
+            background: rgba(201,168,76,0.14);
+            border: 1px solid rgba(201,168,76,0.2);
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            width: 62%;
+            border-radius: 9999px;
+            background: linear-gradient(90deg, #A07830, #C9A84C, #E8C96A, #C9A84C, #A07830);
+            background-size: 200% auto;
+            animation: shine 2.5s linear infinite, grow 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+        }
+        @keyframes grow { from { width: 0; } }
+
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-top: 1.7rem;
+            padding: 0.8rem 1.9rem;
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, #C9A84C, #A07830);
+            box-shadow: 0 4px 16px rgba(201,168,76,0.35);
+            transition: all 0.25s ease;
+        }
+        .home-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201,168,76,0.45);
+        }
+
+        /* ===== Collaborate section ===== */
+        .collab {
+            margin-top: 2.1rem;
+            padding: 1.5rem 1.4rem 1.4rem;
+            border-radius: 1.5rem;
+            background: rgba(201,168,76,0.07);
+            border: 1px solid rgba(201,168,76,0.22);
+            text-align: center;
+        }
+        .collab-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.58rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #A07830;
+            font-weight: 600;
+        }
+        .collab-chip i { font-size: 0.7rem; }
+        .collab h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: #1f2937;
+            margin-top: 0.55rem;
+        }
+        .collab p {
+            font-size: 0.78rem;
+            line-height: 1.6;
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
+        .collab-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-top: 1.1rem;
+        }
+        .collab-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            font-size: 0.66rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 9999px;
+            border: 1px solid rgba(201,168,76,0.4);
+            color: #A07830;
+            background: rgba(255,251,240,0.8);
+            transition: all 0.25s ease;
+        }
+        .collab-btn:hover {
+            background: linear-gradient(135deg, #C9A84C, #A07830);
+            border-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(201,168,76,0.35);
+        }
+        .collab-btn i { font-size: 0.8rem; }
+
+        .collab-socials {
+            display: flex;
+            justify-content: center;
+            gap: 0.55rem;
+            margin-top: 1.1rem;
+        }
+        .collab-socials a {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(255,251,240,0.85);
+            border: 1px solid rgba(201,168,76,0.3);
+            color: #A07830;
+            font-size: 0.75rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+        .collab-socials a:hover {
+            background: linear-gradient(135deg, #C9A84C, #A07830);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            margin-top: 1.9rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(201,168,76,0.18);
+        }
+        footer p { font-size: 0.68rem; color: #9ca3af; }
+
+        @media (max-width: 480px) {
+            body { padding: 1.75rem 0.9rem; }
+            .waiting-container { padding: 2.25rem 1.4rem 1.6rem; border-radius: 1.75rem; }
+            .mascot-wrap { width: 112px; height: 112px; }
+            .ring { width: 420px; height: 420px; }
+            .ring-2 { width: 540px; height: 540px; }
+            .collab { padding: 1.25rem 1rem 1.1rem; }
+            .collab-btn { padding: 0.55rem 1rem; font-size: 0.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="ring"></div>
+    <div class="ring ring-2"></div>
+    <span class="sparkle s1"></span><span class="sparkle s2"></span><span class="sparkle s3"></span>
+    <span class="sparkle s4"></span><span class="sparkle s5"></span><span class="sparkle s6"></span>
+
+    <div class="waiting-container">
+        <div class="mascot-wrap">
+            <img src="assets/lion.gif" alt="Taigour Group mascot" class="mascot">
+        </div>
+        <div class="badge"><span class="badge-dot"></span><span>Under Construction</span></div>
+        <h1>Coming Soon</h1>
+        <p class="lead">We're crafting something special here. This page is currently being built — check back soon for updates.</p>
+
+        <div class="progress-wrap">
+            <div class="progress-label"><span>Building in progress</span><span>62%</span></div>
+            <div class="progress-track"><div class="progress-fill"></div></div>
+        </div>
+
+        <a href="index.html" class="home-btn"><i class="fas fa-arrow-left"></i><span>Back to Home</span></a>
+
+        <!-- Collaborate -->
+        <div class="collab">
+            <span class="collab-chip"><i class="fas fa-handshake"></i>Let's Work Together</span>
+            <h2>Collaborate With Us</h2>
+            <p>This venture is still in the making — and that's the best time to join in. Whether it's a partnership, an investment, an idea, or a helping hand, we'd love to hear from you.</p>
+            <div class="collab-actions">
+                <a class="collab-btn" href="https://api.whatsapp.com/send/?phone=9779766115626&text=Hello%20Taigour%20Group!%20I'm%20interested%20in%20collaborating%20with%20you." target="_blank"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+                <a class="collab-btn" href="mailto:taigourgroup@gmail.com?subject=Collaboration%20with%20Taigour%20Group"><i class="fas fa-envelope"></i><span>Email Us</span></a>
+                <a class="collab-btn" href="index.html#contact"><i class="fas fa-paper-plane"></i><span>Contact Form</span></a>
+            </div>
+            <div class="collab-socials">
+                <a href="https://www.linkedin.com/in/taigours-groups-of-organizations" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://x.com/taigoursgroups" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com/TaigoursGroup" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Taigour Group. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

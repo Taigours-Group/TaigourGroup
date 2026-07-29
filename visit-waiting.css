@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: #252525;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #feffd5;
+}
+
+:root {
+      --gradient-primary: linear-gradient(135deg, #ffd344 0%, #feffb0 50%, #B8860B 100%);
+}
+
