@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/logo1.png" alt="Taigour Group Logo" width="120">
+<img src="https://res.cloudinary.com/dbjjzyrr3/image/upload/v1785391846/TGO_LOGO_no_BG.png" alt="Taigour Group Logo" width="120">
 
 # TAIGOUR GROUP
 
@@ -170,7 +170,7 @@ We welcome:
 
 <div align="center">
 
-<img src="assets/logo1.png" alt="Taigour Group" width="40">
+<img src="https://res.cloudinary.com/dbjjzyrr3/image/upload/v1785391846/TGO_LOGO_no_BG.png" alt="Taigour Group" width="40">
 
 **© 2025 Taigour Group. All rights reserved.**
 
